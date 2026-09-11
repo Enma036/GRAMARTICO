@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Gramartico helps you write clearly, confidently, and in your own voice." />
+    <title>Gramartico — Write with confidence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-top">
+          <a class="brand" href="#" aria-label="Gramartico home"><span class="brand-mark">G</span><strong>gramartico</strong></a>
+          <button class="collapse-button" id="closeMenu" aria-label="Close navigation">‹</button>
+        </div>
+        <button class="new-document" id="newDocument"><span>＋</span> New document</button>
+        <nav aria-label="Main navigation">
+          <a class="nav-link active" href="#editor"><span class="nav-icon">⌂</span> My workspace</a>
+          <a class="nav-link" href="#documents"><span class="nav-icon">▤</span> My documents <span class="count-badge">4</span></a>
+          <a class="nav-link" href="#templates"><span class="nav-icon">◇</span> Templates</a>
+          <a class="nav-link" href="#analytics"><span class="nav-icon">↗</span> Writing insights</a>
+        </nav>
+        <div class="upgrade-card">
+          <span class="sparkle">✦</span>
+          <strong>Unlock your best writing</strong>
+          <p>Rewrite full sentences, adjust your tone, and get advanced suggestions.</p>
+          <button type="button">Explore Pro</button>
+        </div>
+        <button class="account" type="button"><span class="avatar">AM</span><span><strong>Alex Morgan</strong><small>Free plan</small></span><span>•••</span></button>
+      </aside>
+
+      <main>
+        <header class="topbar">
+          <div class="topbar-left"><button class="menu-button" id="menuButton" aria-label="Open navigation" aria-expanded="false">☰</button><span class="document-state"><i></i> All changes saved</span></div>
+          <div class="topbar-actions"><button class="ghost-button" id="shareButton">↗ <span>Share</span></button><button class="icon-button" aria-label="Notifications">♢<i></i></button><span class="mini-avatar">AM</span></div>
+        </header>
+
+        <section class="workspace" id="editor">
+          <div class="document-panel">
+            <div class="document-toolbar">
+              <div class="title-wrap"><input id="documentTitle" value="Quarterly project update" aria-label="Document title" /><span>Personal</span></div>
+              <div class="formatting" aria-label="Text formatting"><button type="button" aria-label="Bold"><b>B</b></button><button type="button" aria-label="Italic"><i>I</i></button><button type="button" aria-label="Bulleted list">☷</button><span></span><button type="button" aria-label="More options">•••</button></div>
+            </div>
+            <div class="paper">
+              <label for="writingArea">Your draft</label>
+              <textarea id="writingArea" spellcheck="true">Hi team,
+
+I wanted to give everyone a quick update on the project. We made good progress this quarter, however there is still a few things we need to finish before launch.
+
+The research phase is now complete and the design team have started working on the final screens. We should of received the first prototype by Friday. This will give us enough time to test it carefully and make any needed changes.
+
+Thanks for all your hard work on this so far. I’m looking forward to sharing what we’ve built.</textarea>
+              <div class="writing-footer"><span id="wordCount">86 words</span><span id="readingTime">1 min read</span><span>English (US)</span></div>
+            </div>
+          </div>
+
+          <aside class="assistant-panel" aria-label="Writing assistant">
+            <div class="assistant-header"><div><span class="assistant-logo">G</span><strong>Writing assistant</strong></div><button type="button" aria-label="Assistant options">•••</button></div>
+            <div class="score-card">
+              <div class="score-ring" id="scoreRing"><span id="scoreValue">82</span></div>
+              <div><strong>Your writing is clear</strong><p id="scoreSummary">4 suggestions can make it even stronger.</p></div>
+            </div>
+            <div class="assistant-tabs" role="tablist"><button class="active" role="tab" data-tab="suggestions">Suggestions <span id="suggestionCount">4</span></button><button role="tab" data-tab="goals">Goals</button></div>
+            <div class="suggestions" id="suggestionsPanel">
+              <article class="suggestion" data-find="there is still a few things" data-replace="there are still a few things">
+                <div class="suggestion-type correctness"><span>✓</span><strong>Correctness</strong></div>
+                <p>Use a plural verb with “a few things.”</p>
+                <button class="replacement" type="button"><del>is</del> <ins>are</ins></button>
+                <div class="suggestion-actions"><button class="accept" type="button">Accept</button><button class="dismiss" type="button" aria-label="Dismiss suggestion">×</button></div>
+              </article>
+              <article class="suggestion" data-find="team have started" data-replace="team has started">
+                <div class="suggestion-type correctness"><span>✓</span><strong>Correctness</strong></div>
+                <p>“Team” is treated as a singular collective noun.</p>
+                <button class="replacement" type="button"><del>have</del> <ins>has</ins></button>
+                <div class="suggestion-actions"><button class="accept" type="button">Accept</button><button class="dismiss" type="button" aria-label="Dismiss suggestion">×</button></div>
+              </article>
+              <article class="suggestion" data-find="should of received" data-replace="should have received">
+                <div class="suggestion-type correctness"><span>✓</span><strong>Correctness</strong></div>
+                <p>Use “have” after the modal verb “should.”</p>
+                <button class="replacement" type="button"><del>should of</del> <ins>should have</ins></button>
+                <div class="suggestion-actions"><button class="accept" type="button">Accept</button><button class="dismiss" type="button" aria-label="Dismiss suggestion">×</button></div>
+              </article>
+              <article class="suggestion" data-find="make any needed changes" data-replace="make any necessary changes">
+                <div class="suggestion-type clarity"><span>✦</span><strong>Clarity</strong></div>
+                <p>“Necessary” sounds more precise in this context.</p>
+                <button class="replacement" type="button"><del>needed</del> <ins>necessary</ins></button>
+                <div class="suggestion-actions"><button class="accept" type="button">Accept</button><button class="dismiss" type="button" aria-label="Dismiss suggestion">×</button></div>
+              </article>
+              <div class="all-clear" id="allClear"><span>✓</span><h2>Great work!</h2><p>Your writing looks polished and ready to share.</p></div>
+            </div>
+            <div class="goals-panel" id="goalsPanel" hidden>
+              <p class="panel-label">WRITING GOALS</p>
+              <button class="goal-row"><span>👥</span><span><strong>Audience</strong><small>Knowledgeable</small></span><b>›</b></button>
+              <button class="goal-row"><span>◉</span><span><strong>Formality</strong><small>Neutral</small></span><b>›</b></button>
+              <button class="goal-row"><span>☀</span><span><strong>Tone</strong><small>Confident, friendly</small></span><b>›</b></button>
+              <div class="tone-card"><p>Detected tone</p><strong>Confident <span>·</span> Friendly</strong><div><i style="width:78%"></i></div></div>
+            </div>
+          </aside>
+        </section>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
